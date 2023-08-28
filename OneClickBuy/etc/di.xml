@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <preference for="Amida\OneClickBuy\Api\Data\OneClickBuyInterface" type="Amida\OneClickBuy\Model\OneClickBuy" />
+    <preference for="Amida\OneClickBuy\Api\OneClickBuyRepositoryInterface" type="Amida\OneClickBuy\Model\OneClickBuyRepository" />
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
