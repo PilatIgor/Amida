@@ -1,1 +1,28 @@
-<button type="button">Order at one click!</button>
+<button title="Order at one click!" class="action primary tocart" id="order-at-one-click-button">
+    <span>Order at one click!</span>
+</button>
+
+<div id="inputContainer" style="display: none;">
+    <input type="text" id="phoneNumber" placeholder="Enter Phone Number" style="margin: 15px 0 15px 0">
+    <button id="sendPhoneNumber" class="action primary tocart" >Order now</button>
+</div>
+
+<script>
+    require(['jquery'], function($) {
+        $(document).ready(function() {
+            $('#order-at-one-click-button').click(function() {
+                $('#inputContainer').toggle();
+                $('#phoneNumber').val('');
+            });
+
+            $('#sendPhoneNumber').click(function() {
+                var phoneNumber = $('#phoneNumber').val();
+                if (phoneNumber) {
+
+                } else {
+                    alert('Please enter a phone number.');
+                }
+            });
+        });
+    });
+</script>
