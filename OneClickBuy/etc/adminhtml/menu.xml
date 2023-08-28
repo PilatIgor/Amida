@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amida_OneClickBuy::one_click_menu"
+             title="One Click Orders"
+             module="Amida_OneClickBuy"
+             sortOrder="10"
+             parent="Magento_Sales::sales_operation"
+             action="oneclickorder/oneclickorder/index"
+             resource="Amida_OneClickBuy::one_click_menu"
+        />
+    </menu>
+</config>
