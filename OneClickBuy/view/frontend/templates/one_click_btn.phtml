@@ -1,10 +1,16 @@
+<?php
+/** @var Amida\OneClickBuy\Block\Product\OneClickButton $block */
+?>
+
 <button title="Order at one click!" class="action primary tocart" id="order-at-one-click-button">
     <span>Order at one click!</span>
 </button>
 
 <div id="inputContainer" style="display: none;">
     <input type="text" id="phoneNumber" placeholder="Enter Phone Number" style="margin: 15px 0 15px 0">
-    <button id="sendPhoneNumber" class="action primary tocart" >Order now</button>
+    <button type="submit" id="sendPhoneNumber" class="action primary tocart" >Order now</button>
+    <input type="hidden" id="productSku" value="<?php $block->getProductSku() ?>">
+    <div id="responseMessage" style="margin-top: 15px;"></div>
 </div>
 
 <script>
@@ -13,12 +19,27 @@
             $('#order-at-one-click-button').click(function() {
                 $('#inputContainer').toggle();
                 $('#phoneNumber').val('');
+                $('#responseMessage').text('');
             });
 
             $('#sendPhoneNumber').click(function() {
                 var phoneNumber = $('#phoneNumber').val();
-                if (phoneNumber) {
+                var productSku = $('#productSku').val();
 
+                if (phoneNumber) {
+                    $.ajax({
+                        url: BASE_URL + 'oneclickorder/product/oneclickorder',
+                        type: 'POST',
+                        data: {phone: phoneNumber, sku: productSku},
+                        success: function (response) {
+                            $('#responseMessage').text(response.message);
+                            $('#inputContainer').hide();
+                            $('#phoneNumber').val('');
+                        },
+                        error: function (){
+                            alert('An error occurred while processing your request.');
+                        }
+                    });
                 } else {
                     alert('Please enter a phone number.');
                 }
