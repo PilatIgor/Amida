@@ -33,7 +33,6 @@ class OneClickBuyRepository implements OneClickBuyRepositoryInterface
     private $dataStoreFactory;
 
     /**
-     * BookRepository constructor.
      * @param ResourceModel\OneClickBuy $resource
      * @param Data\OneClickBuyInterfaceFactory $dataStoreFactory
      * @param OneClickBuyCollectionFactory $storeCollectionFactory
@@ -43,11 +42,10 @@ class OneClickBuyRepository implements OneClickBuyRepositoryInterface
         \Amida\OneClickBuy\Model\ResourceModel\OneClickBuy $resource,
         \Amida\OneClickBuy\Api\Data\OneClickBuyInterfaceFactory $dataStoreFactory,
         OneClickBuyCollectionFactory $storeCollectionFactory,
-        CollectionProcessorInterface $collectionProcessor,
+        CollectionProcessorInterface $collectionProcessor
     ) {
         $this->resource = $resource;
         $this->collectionProcessor = $collectionProcessor;
-        $this->searchResultsFactory = $searchResultsFactory;
         $this->dataStoreFactory = $dataStoreFactory;
         $this->storeCollectionFactory = $storeCollectionFactory;
     }

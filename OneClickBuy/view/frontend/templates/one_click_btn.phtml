@@ -9,7 +9,7 @@
 <div id="inputContainer" style="display: none;">
     <input type="text" id="phoneNumber" placeholder="Enter Phone Number" style="margin: 15px 0 15px 0">
     <button type="submit" id="sendPhoneNumber" class="action primary tocart" >Order now</button>
-    <input type="hidden" id="productSku" value="<?php $block->getProductSku() ?>">
+    <input type="hidden" id="productSku" value="<?php echo $block->getProductSku() ?>">
     <div id="responseMessage" style="margin-top: 15px;"></div>
 </div>
 
@@ -37,7 +37,7 @@
                             $('#phoneNumber').val('');
                         },
                         error: function (){
-                            alert('An error occurred while processing your request.');
+                            $('#responseMessage').text('An error occurred while processing your request.');
                         }
                     });
                 } else {

@@ -43,6 +43,12 @@ class OneClickOrder implements ActionInterface
         $this->oneClickFactory = $oneClickFactory;
     }
 
+    /**
+     * Get request param and save in database
+     *
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface
+     * @throws \Exception
+     */
     public function execute()
     {
         $phoneNumber = $this->request->getParam('phone');
